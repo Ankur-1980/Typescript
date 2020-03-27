@@ -9,14 +9,15 @@ const ducks: HTMLCollectionOf<Element> = document.getElementsByClassName('duck')
 ducks[generateRandom].id = 'goose';
 
 // 4. Create list of the ducks that have been clicked
-const clickedDucks: number[] = [];
+const clickedDucks: HTMLElement[] = [];
 
 // 5. Create the changeColor function
-const changeColor = event => {
+const changeColor: any = event => {
 	if (event.target.classList.contains('duck')) {
 		event.target.style.backgroundColor = 'green';
 		clickedDucks.push(event.target);
 	}
+	console.log(event);
 
 	if (event.target.id === 'goose') {
 		clickedDucks.forEach(item => {
