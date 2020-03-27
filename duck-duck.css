@@ -1,0 +1,11 @@
+.mother-duck {
+	display: flex;
+	flex-direction: 'row';
+	width: 35%;
+	flex-wrap: wrap;
+}
+.duck {
+	width: 100px;
+	height: 100px;
+	border: 2px solid black;
+}
