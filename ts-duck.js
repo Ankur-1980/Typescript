@@ -6,14 +6,14 @@ var ducks = document.getElementsByClassName('duck');
 // 3. Assign goose to the duck
 ducks[generateRandom].id = 'goose';
 // 4. Create list of the ducks that have been clicked
-var clickedDucks: HTMLElement[] = [];
+var clickedDucks = [];
 // 5. Create the changeColor function
 var changeColor = function (event) {
     if (event.target.classList.contains('duck')) {
         event.target.style.backgroundColor = 'green';
         clickedDucks.push(event.target);
     }
-    console.log(event.target);
+    console.log(event);
     if (event.target.id === 'goose') {
         clickedDucks.forEach(function (item) {
             item.style.backgroundColor = 'yellow';
@@ -23,7 +23,7 @@ var changeColor = function (event) {
     }
 };
 // 6. Add the changeColor function to the du(item => {
-for (var _i = 0, ducks_1 = ducks; _i < ducks_1.length; _i++) {
-    var i = ducks_1[_i];
+for (var _i = 0, _a = ducks; _i < _a.length; _i++) {
+    var i = _a[_i];
     i.addEventListener('click', function (event) { return changeColor(event); });
 }

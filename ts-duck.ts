@@ -28,6 +28,6 @@ const changeColor: any = event => {
 	}
 };
 // 6. Add the changeColor function to the du(item => {
-for (let i of ducks) {
+for (let i of ducks as any) {
 	i.addEventListener('click', event => changeColor(event));
 }
