@@ -42,6 +42,7 @@ function calcAverageProductPrice(prods) {
     console.log(average);
 }
 calcAverageProductPrice(products);
+// Part 3
 var inventory = [
     {
         name: 'motor',
