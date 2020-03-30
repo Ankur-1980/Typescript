@@ -3,7 +3,7 @@ interface Mountain {
 	height: number;
 }
 
-const mountains: Mountain[] = [
+const mountains = [
 	{
 		name: 'Kilamanjaro',
 		height: 19341,
@@ -27,9 +27,9 @@ function findNameOfTallestMountain(mtns: Mountain[]) {
 
 	console.log(tallest.name);
 }
-
 findNameOfTallestMountain(mountains);
 
+// Part 2
 interface Product {
 	name: string;
 	price: number;
@@ -64,6 +64,7 @@ interface InventoryItem extends Product {
 	quantity: number;
 }
 
+// Part 3
 const inventory: InventoryItem[] = [
 	{
 		name: 'motor',
@@ -83,14 +84,13 @@ const inventory: InventoryItem[] = [
 ];
 
 function calcInventoryValue(stock: InventoryItem[]) {
-	// first get the totals of the individual items
-	const subTotals = stock.map(items => items.price * items.quantity);
-	// returns an array of the totals [100,50,20]
-	console.log(subTotals);
+	const subTotals = stock
+		// first get the totals of the individual items
+		.map(items => items.price * items.quantity)
+		// reduce to add everything in the subtotals array together.
+		.reduce((acc, curr) => (acc += curr));
 
-	// reduce to add everything in the subtotals array together.
-	const total = subTotals.reduce((acc, curr) => (acc += curr));
-	console.log(total);
+	console.log(subTotals);
 }
 
 calcInventoryValue(inventory);

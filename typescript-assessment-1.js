@@ -1,71 +1,70 @@
-"use strict";
-const mountains = [
+var mountains = [
     {
         name: 'Kilamanjaro',
-        height: 19341,
+        height: 19341
     },
     {
         name: 'Everest',
-        height: 29029,
+        height: 29029
     },
     {
         name: 'Denali',
-        height: 20310,
+        height: 20310
     },
 ];
 function findNameOfTallestMountain(mtns) {
     // use reduce because we need only one value
-    const tallest = mtns.reduce((acc, curr) => 
-    // if the starting height is greater than the current height return accordingly
-    acc.height > curr.height ? acc : curr);
+    var tallest = mtns.reduce(function (acc, curr) {
+        // if the starting height is greater than the current height return accordingly
+        return acc.height > curr.height ? acc : curr;
+    });
     console.log(tallest.name);
 }
 findNameOfTallestMountain(mountains);
-const products = [
+var products = [
     {
         name: 'Meletti',
-        price: 10,
+        price: 10
     },
     {
         name: 'Nonino',
-        price: 15,
+        price: 15
     },
     {
         name: 'Montenegro',
-        price: 20,
+        price: 20
     },
 ];
 function calcAverageProductPrice(prods) {
     // again reduce because we need one value
     //acc is NaN to start with, so it doesn't have a .price.
-    const average = prods.reduce((acc, curr) => acc + curr.price, 0) / prods.length;
+    var average = prods.reduce(function (acc, curr) { return acc + curr.price; }, 0) / prods.length;
     console.log(average);
 }
 calcAverageProductPrice(products);
-const inventory = [
+var inventory = [
     {
         name: 'motor',
         price: 10.0,
-        quantity: 10,
+        quantity: 10
     },
     {
         name: 'sensor',
         price: 12.5,
-        quantity: 4,
+        quantity: 4
     },
     {
         name: 'LED',
         price: 1,
-        quantity: 20,
+        quantity: 20
     },
 ];
 function calcInventoryValue(stock) {
-    // first get the totals of the individual items
-    const subTotals = stock.map(items => items.price * items.quantity);
-    // returns an array of the totals [100,50,20]
+    var subTotals = stock
+        // first get the totals of the individual items
+        .map(function (items) { return items.price * items.quantity; })
+        // reduce to add everything in the subtotals array together.
+        .reduce(function (acc, curr) { return (acc += curr); });
     console.log(subTotals);
-    // reduce to add everything in the subtotals array together.
-    const total = subTotals.reduce((acc, curr) => (acc += curr));
-    console.log(total);
 }
 calcInventoryValue(inventory);
